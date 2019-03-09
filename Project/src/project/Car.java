@@ -6,39 +6,41 @@ package project;
  */
 public class Car extends FourWheel implements Vehicle {
 
-    private String bodyType;
-    private int noOfSeats;
-    private String transmission;
-    private String fuelType;
+    private final TRANSMISSION TRANSMISSION;
+    private final BODY BODY;
 
-    public Car(String bodyType, int noOfSeats, String transmission, String fuelType, String vehicleName, int year, double baseRent, String make) {
-        super(make, year, baseRent);
-        this.bodyType = bodyType;
-        this.noOfSeats = noOfSeats;
-        this.transmission = transmission;
-        this.fuelType = fuelType;
+    enum BODY {
+        sedan, suv, caravan
+    }
+    private int noOfSeats;
+
+    enum TRANSMISSION {
+        automatic, manual
     }
 
-    public String getBodyType() {
-        return bodyType;
+    public Car(BODY body, int noOfSeats, int year, double baseRent, String make, TRANSMISSION transmission) {
+        super(make, year, baseRent);
+        this.noOfSeats = noOfSeats;
+        this.BODY = body;
+        this.TRANSMISSION = transmission;
+    }
+
+    public BODY getBody() {
+        return BODY;
     }
 
     public int getNoOfSeats() {
         return noOfSeats;
     }
 
-    public String getTransmission() {
-        return transmission;
-    }
-
-    public String getFuelType() {
-        return fuelType;
+    public TRANSMISSION getTransmission() {
+        return TRANSMISSION;
     }
 
     @Override
     public String getInfo() {
-        String format = " Car Make: %s\nBody Type: %s\nYear: %d\nNo. of Seats: %d\nTransmission: %s\nFuel Type: %s";
-        return String.format(format, getMake(), bodyType, getYear(), noOfSeats, transmission, fuelType);
+        String format = " Car Make: %s\nBody Type: %s\nYear: %d\nNo. of Seats: %d\nTransmission: %s";
+        return String.format(format, getMake(), BODY, getYear(), noOfSeats, TRANSMISSION);
     }
 
 }

@@ -6,20 +6,24 @@ package project;
  */
 public class Truck extends FourWheel implements Vehicle {
 
-    private String loadingCapacity;
+    private final LOADCAPACITY LOADCAPACITY;
 
-    public Truck(String loadingCapacity, String make, int year, double baseRent) {
+    enum LOADCAPACITY {
+        minitruck, cargo
+    };
+
+    public Truck(LOADCAPACITY loadcapacity, String make, int year, double baseRent) {
         super(make, year, baseRent);
-        this.loadingCapacity = loadingCapacity;
+        this.LOADCAPACITY = loadcapacity;
     }
 
-    public String getLoadingCapacity() {
-        return loadingCapacity;
+    public LOADCAPACITY getLoadCapacity() {
+        return LOADCAPACITY;
     }
 
     public String getInfo() {
         String format = " Car Make: %s\nYear: %d\nLoading Capacity: %s";
-        return String.format(format, getMake(), getYear(), loadingCapacity);
+        return String.format(format, getMake(), getYear(), getLoadCapacity());
     }
 
 }

@@ -12,7 +12,7 @@ package project;
 public interface Vehicle {
     
     public String getInfo();
-    
-    
-    
+       
+
+
 }

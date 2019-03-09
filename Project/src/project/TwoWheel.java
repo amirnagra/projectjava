@@ -1,5 +1,3 @@
-
-
 package project;
 
 /**
@@ -7,19 +5,18 @@ package project;
  * @author aa_na
  */
 public abstract class TwoWheel {
+
     private String make;
     private String model;
     private String year;
     private double baseRent;
 
-    public TwoWheel(String vehicleName, String model, String year, double baseRent) {
-        this.make = vehicleName;
+    public TwoWheel(String make, String model, String year, double baseRent) {
+        this.make = make;
         this.model = model;
         this.year = year;
         this.baseRent = baseRent;
     }
-
-
 
     public String getMake() {
         return make;
@@ -36,7 +33,7 @@ public abstract class TwoWheel {
     public double getBaseRent() {
         return baseRent;
     }
-    
-     public abstract String getInfo();
+
+    public abstract String getInfo();
 
 }
